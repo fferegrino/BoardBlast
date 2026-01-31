@@ -1,0 +1,11 @@
+extends Node2D
+
+signal replay_clicked(button)
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass
+
+func _on_replay_clicked(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		replay_clicked.emit(self)

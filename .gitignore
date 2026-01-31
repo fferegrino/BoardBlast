@@ -1,0 +1,77 @@
+############################
+# GODOT 4 PROJECT FILES
+############################
+
+# Godot 4 editor cache and metadata
+.godot/
+
+# Imported assets (can always be regenerated)
+.import/
+
+# OS-specific junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Backup files
+*~
+*.tmp
+*.swp
+
+
+############################
+# XCODE / IOS PROJECT FILES
+############################
+
+# Build products
+build/
+DerivedData/
+*.a
+*.pck
+
+# Archives / IPAs
+*.xcarchive
+*.ipa
+
+# Xcode user data and UI state
+*.xcuserstate
+xcuserdata/
+*.xccheckout
+*.moved-aside
+
+# Swift Package Manager
+.build/
+.swiftpm/
+
+# CocoaPods (optional – ignore if you commit Pods)
+Pods/
+Podfile.lock
+
+# Carthage (optional)
+Carthage/Build/
+
+# Fastlane output
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/
+fastlane/test_output/
+
+# Provisioning profiles, signing artefacts
+*.mobileprovision
+*.provisionprofile
+*.cer
+*.p12
+
+
+############################
+# CONFIG / SECRETS (EXAMPLES)
+############################
+
+# Local config files holding secrets (adjust names as needed)
+*.local.xcconfig
+Config.local.plist
+Secrets.plist
+.env
+.env.*
+
+.export/

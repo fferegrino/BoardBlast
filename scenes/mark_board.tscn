@@ -1,0 +1,69 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4pul3xis6jbh"]
+
+[ext_resource type="Script" uid="uid://de7k8ryaklruf" path="res://scenes/mark_board.gd" id="1_1ilay"]
+[ext_resource type="Texture2D" uid="uid://dacbpl3mkq02l" path="res://sprites/memo_pad.png" id="2_yp04e"]
+[ext_resource type="Texture2D" uid="uid://06nsfdayv2c1" path="res://sprites/mark_numbers.png" id="3_yp04e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ilay"]
+size = Vector2(149.62598, 149.62596)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_1ilay")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(255, 87)
+texture = ExtResource("2_yp04e")
+
+[node name="mark0" type="Sprite2D" parent="."]
+position = Vector2(87.00001, 86.99999)
+scale = Vector2(0.6683331, 0.6683331)
+texture = ExtResource("3_yp04e")
+hframes = 10
+
+[node name="Area2D" type="Area2D" parent="mark0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mark0/Area2D"]
+position = Vector2(-1.5258789e-05, 4.5776367e-05)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_1ilay")
+
+[node name="mark1" type="Sprite2D" parent="."]
+position = Vector2(199, 87)
+scale = Vector2(0.668, 0.668)
+texture = ExtResource("3_yp04e")
+hframes = 10
+frame = 1
+
+[node name="Area2D" type="Area2D" parent="mark1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mark1/Area2D"]
+shape = SubResource("RectangleShape2D_1ilay")
+
+[node name="mark2" type="Sprite2D" parent="."]
+position = Vector2(311, 87)
+scale = Vector2(0.668, 0.668)
+texture = ExtResource("3_yp04e")
+hframes = 10
+frame = 2
+
+[node name="Area2D" type="Area2D" parent="mark2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mark2/Area2D"]
+shape = SubResource("RectangleShape2D_1ilay")
+
+[node name="mark3" type="Sprite2D" parent="."]
+position = Vector2(423.00003, 87.00001)
+scale = Vector2(0.668, 0.668)
+texture = ExtResource("3_yp04e")
+hframes = 10
+frame = 3
+
+[node name="Area2D" type="Area2D" parent="mark3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mark3/Area2D"]
+shape = SubResource("RectangleShape2D_1ilay")
+
+[connection signal="input_event" from="mark0/Area2D" to="." method="_on_mark_0_tapped"]
+[connection signal="input_event" from="mark1/Area2D" to="." method="_on_mark_1_tapped"]
+[connection signal="input_event" from="mark2/Area2D" to="." method="_on_mark_2_tapped"]
+[connection signal="input_event" from="mark3/Area2D" to="." method="_on_mark_3_tapped"]

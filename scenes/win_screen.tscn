@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://crrj8wjq1syqv"]
+
+[ext_resource type="Script" uid="uid://da3undhkglux8" path="res://scenes/win_screen.gd" id="1_erk2x"]
+[ext_resource type="Texture2D" uid="uid://vd7lkektnxpt" path="res://sprites/overlay.png" id="2_2l6cc"]
+[ext_resource type="Texture2D" uid="uid://c3r6ujl2pb6dt" path="res://sprites/big_button.png" id="3_0lrm4"]
+[ext_resource type="FontFile" uid="uid://5p4h12knnf72" path="res://fonts/Jersey15-Regular.ttf" id="4_6s1kg"]
+[ext_resource type="Texture2D" uid="uid://cypncioaxgdst" path="res://sprites/button_opts.png" id="5_bqn3h"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qnnn4"]
+font = ExtResource("4_6s1kg")
+font_size = 216
+font_color = Color(0.91764706, 0.91764706, 0.91764706, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_luwr3"]
+size = Vector2(791, 259)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_erk2x")
+metadata/_edit_vertical_guides_ = [603.0]
+
+[node name="Backdrop" type="Sprite2D" parent="."]
+position = Vector2(603, 1311)
+texture = ExtResource("2_2l6cc")
+
+[node name="ReplayButton" type="Sprite2D" parent="."]
+position = Vector2(602, 2010)
+texture = ExtResource("3_0lrm4")
+
+[node name="ButtonOpts" type="Sprite2D" parent="ReplayButton"]
+position = Vector2(-273, 2)
+texture = ExtResource("5_bqn3h")
+hframes = 5
+vframes = 2
+frame = 4
+
+[node name="Label" type="Label" parent="ReplayButton"]
+offset_left = -188.0
+offset_top = -103.0
+offset_right = 188.0
+offset_bottom = 113.0
+text = "NEXT"
+label_settings = SubResource("LabelSettings_qnnn4")
+
+[node name="Area2D" type="Area2D" parent="ReplayButton"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ReplayButton/Area2D"]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_luwr3")
+
+[connection signal="input_event" from="ReplayButton/Area2D" to="." method="_on_replay_clicked"]

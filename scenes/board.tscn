@@ -1,0 +1,120 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwg5yfycdegg1"]
+
+[ext_resource type="PackedScene" uid="uid://bhy2uxwem4sv4" path="res://scenes/card.tscn" id="1_bw3vb"]
+[ext_resource type="Script" uid="uid://l0qcpfnkudsd" path="res://scenes/board.gd" id="1_nglv8"]
+[ext_resource type="Texture2D" uid="uid://btykliyifut8j" path="res://sprites/board_background.png" id="2_fv4ni"]
+[ext_resource type="PackedScene" uid="uid://8ombi01571ve" path="res://scenes/points_tile.tscn" id="2_tx6nw"]
+
+[node name="Board" type="Node2D"]
+script = ExtResource("1_nglv8")
+metadata/_edit_vertical_guides_ = [28.0]
+metadata/_edit_horizontal_guides_ = [28.0]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(553, 553)
+texture = ExtResource("2_fv4ni")
+
+[node name="t00" parent="." instance=ExtResource("1_bw3vb")]
+position = Vector2(28, 28)
+
+[node name="t01" parent="." instance=ExtResource("1_bw3vb")]
+position = Vector2(208, 28)
+
+[node name="t02" parent="." instance=ExtResource("1_bw3vb")]
+position = Vector2(388, 28)
+
+[node name="t03" parent="." instance=ExtResource("1_bw3vb")]
+position = Vector2(568, 28)
+
+[node name="t04" parent="." instance=ExtResource("1_bw3vb")]
+position = Vector2(748, 28)
+
+[node name="t10" parent="." instance=ExtResource("1_bw3vb")]
+position = Vector2(28, 208)
+
+[node name="t11" parent="." instance=ExtResource("1_bw3vb")]
+position = Vector2(208, 208)
+
+[node name="t12" parent="." instance=ExtResource("1_bw3vb")]
+position = Vector2(388, 208)
+
+[node name="t13" parent="." instance=ExtResource("1_bw3vb")]
+position = Vector2(568, 208)
+
+[node name="t14" parent="." instance=ExtResource("1_bw3vb")]
+position = Vector2(748, 208)
+
+[node name="t20" parent="." instance=ExtResource("1_bw3vb")]
+position = Vector2(28, 388)
+
+[node name="t21" parent="." instance=ExtResource("1_bw3vb")]
+position = Vector2(208, 388)
+
+[node name="t22" parent="." instance=ExtResource("1_bw3vb")]
+position = Vector2(388, 388)
+
+[node name="t23" parent="." instance=ExtResource("1_bw3vb")]
+position = Vector2(568, 388)
+
+[node name="t24" parent="." instance=ExtResource("1_bw3vb")]
+position = Vector2(748, 388)
+
+[node name="t30" parent="." instance=ExtResource("1_bw3vb")]
+position = Vector2(28, 568)
+
+[node name="t31" parent="." instance=ExtResource("1_bw3vb")]
+position = Vector2(208, 568)
+
+[node name="t32" parent="." instance=ExtResource("1_bw3vb")]
+position = Vector2(388, 568)
+
+[node name="t33" parent="." instance=ExtResource("1_bw3vb")]
+position = Vector2(568, 568)
+
+[node name="t34" parent="." instance=ExtResource("1_bw3vb")]
+position = Vector2(748, 568)
+
+[node name="t40" parent="." instance=ExtResource("1_bw3vb")]
+position = Vector2(28, 748)
+
+[node name="t41" parent="." instance=ExtResource("1_bw3vb")]
+position = Vector2(208, 748)
+
+[node name="t42" parent="." instance=ExtResource("1_bw3vb")]
+position = Vector2(388, 748)
+
+[node name="t43" parent="." instance=ExtResource("1_bw3vb")]
+position = Vector2(568, 748)
+
+[node name="t44" parent="." instance=ExtResource("1_bw3vb")]
+position = Vector2(748, 748)
+
+[node name="r0" parent="." instance=ExtResource("2_tx6nw")]
+position = Vector2(929, 28)
+
+[node name="r1" parent="." instance=ExtResource("2_tx6nw")]
+position = Vector2(928, 208)
+
+[node name="r2" parent="." instance=ExtResource("2_tx6nw")]
+position = Vector2(928, 388)
+
+[node name="r3" parent="." instance=ExtResource("2_tx6nw")]
+position = Vector2(928, 568)
+
+[node name="r4" parent="." instance=ExtResource("2_tx6nw")]
+position = Vector2(928, 748)
+
+[node name="c0" parent="." instance=ExtResource("2_tx6nw")]
+position = Vector2(28, 928)
+
+[node name="c1" parent="." instance=ExtResource("2_tx6nw")]
+position = Vector2(208, 928)
+
+[node name="c2" parent="." instance=ExtResource("2_tx6nw")]
+position = Vector2(388, 928)
+
+[node name="c3" parent="." instance=ExtResource("2_tx6nw")]
+position = Vector2(568, 928)
+
+[node name="c4" parent="." instance=ExtResource("2_tx6nw")]
+position = Vector2(748, 928)

@@ -1,0 +1,41 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Blast Board"
+config/version="1.0.3"
+run/main_scene="uid://b30udp0gggu2q"
+config/features=PackedStringArray("4.5", "GL Compatibility")
+boot_splash/bg_color=Color(1, 1, 1, 1)
+boot_splash/image="uid://bpga8cbkyqu01"
+
+[autoload]
+
+AudioManager="*res://game/audio_manager.gd"
+
+[display]
+
+window/size/viewport_width=1206
+window/size/viewport_height=2622
+window/stretch/mode="canvas_items"
+window/handheld/orientation=5
+
+[dotnet]
+
+project/assembly_name="BomberFlip"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
+environment/defaults/default_clear_color=Color(0.15686275, 0.627451, 0.40784314, 1)

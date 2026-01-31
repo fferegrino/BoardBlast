@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://dekroiuhpjpdf"]
+
+[ext_resource type="FontFile" uid="uid://5p4h12knnf72" path="res://fonts/Jersey15-Regular.ttf" id="1_di2xw"]
+
+[resource]
+font = ExtResource("1_di2xw")
+font_size = 60

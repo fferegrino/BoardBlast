@@ -1,0 +1,113 @@
+[gd_scene load_steps=14 format=3 uid="uid://b30udp0gggu2q"]
+
+[ext_resource type="Script" uid="uid://cdp1ubqqvh021" path="res://scenes/game.gd" id="1_lnu2h"]
+[ext_resource type="Texture2D" uid="uid://ceqyk4fgq1kpy" path="res://sprites/background.png" id="2_gee14"]
+[ext_resource type="PackedScene" uid="uid://dwg5yfycdegg1" path="res://scenes/board.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://blpikeaxt8yqj" path="res://scenes/scoreboard.tscn" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://gckjdbf8m77q" path="res://scenes/end_screen.tscn" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://bav8vku3qf3l3" path="res://scenes/level_display.tscn" id="5_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://b4pul3xis6jbh" path="res://scenes/mark_board.tscn" id="6_gee14"]
+[ext_resource type="PackedScene" uid="uid://deik370d4832o" path="res://scenes/button.tscn" id="7_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://crrj8wjq1syqv" path="res://scenes/win_screen.tscn" id="7_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://cjaouehqts8cy" path="res://scenes/info_screen.tscn" id="10_vtaks"]
+
+[sub_resource type="Animation" id="Animation_kvpfn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(50, 684)]
+}
+
+[sub_resource type="Animation" id="Animation_vtaks"]
+resource_name = "ShakeBoard"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0001, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.70000005, 0.8000001, 0.90000004, 1, 1.1, 1.2, 1.3000001, 1.4, 1.5, 1.6, 1.7, 1.8000001, 1.9, 1.9999999),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(80, 684), Vector2(50, 684), Vector2(70, 684), Vector2(50, 684), Vector2(30, 684), Vector2(80, 684), Vector2(50, 684), Vector2(70, 684), Vector2(50, 684), Vector2(30, 684), Vector2(80, 684), Vector2(50, 684), Vector2(70, 684), Vector2(50, 684), Vector2(30, 684), Vector2(80, 684), Vector2(50, 684), Vector2(70, 684), Vector2(50, 684), Vector2(30, 684), Vector2(80, 684), Vector2(50, 684)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dinhu"]
+_data = {
+&"RESET": SubResource("Animation_kvpfn"),
+&"ShakeBoard": SubResource("Animation_vtaks")
+}
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_lnu2h")
+metadata/_edit_horizontal_guides_ = [691.0, 663.0, 1769.0, 1741.0, 1797.0, 630.0, 369.0]
+metadata/_edit_vertical_guides_ = [50.0, 78.0, 1128.0, 258.0, 438.0]
+
+[node name="Canvas" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Background" type="Sprite2D" parent="Canvas"]
+position = Vector2(603, 1311)
+texture = ExtResource("2_gee14")
+
+[node name="LevelDisplay" parent="Canvas" instance=ExtResource("5_u5sy4")]
+position = Vector2(801, 245)
+
+[node name="BoardShake" type="AnimationPlayer" parent="Canvas"]
+root_node = NodePath("../Board")
+libraries = {
+&"": SubResource("AnimationLibrary_dinhu")
+}
+
+[node name="Board" parent="Canvas" instance=ExtResource("2_yqjtg")]
+position = Vector2(50, 684)
+
+[node name="TotalPoints" parent="Canvas" instance=ExtResource("4_lbhrr")]
+position = Vector2(78, 451)
+label_name = "Total points"
+
+[node name="LevelPoints" parent="Canvas" instance=ExtResource("4_lbhrr")]
+position = Vector2(618, 451)
+
+[node name="MarkBoard" parent="Canvas" instance=ExtResource("6_gee14")]
+position = Vector2(618, 1818)
+metadata/_edit_vertical_guides_ = [10.0, 58.0, 68.0, 116.0]
+metadata/_edit_horizontal_guides_ = [5.0, 76.0, 28.0, 81.0, 129.0]
+
+[node name="SoundButton" parent="Canvas" instance=ExtResource("7_0tnpc")]
+position = Vector2(78, 1828)
+IS_TOGGLE = true
+
+[node name="MusicButton" parent="Canvas" instance=ExtResource("7_0tnpc")]
+position = Vector2(258, 1828)
+VIEW_SPRITE = 1
+IS_TOGGLE = true
+
+[node name="InfoButton" parent="Canvas" instance=ExtResource("7_0tnpc")]
+position = Vector2(438, 1828)
+VIEW_SPRITE = 2
+
+[node name="WinScreen" parent="Canvas" instance=ExtResource("7_u5sy4")]
+visible = false
+
+[node name="EndScreen" parent="Canvas" instance=ExtResource("5_iywne")]
+visible = false
+
+[node name="InfoScreen" parent="Canvas" instance=ExtResource("10_vtaks")]
+visible = false
+
+[node name="Fx" type="AudioStreamPlayer" parent="."]
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+
+[connection signal="close_button_clicked" from="Canvas/InfoScreen" to="." method="_on_info_screen_close_button_clicked"]

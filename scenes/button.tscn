@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://deik370d4832o"]
+
+[ext_resource type="Script" uid="uid://bnwfnyjtexcdn" path="res://scenes/button.gd" id="1_3q610"]
+[ext_resource type="Texture2D" uid="uid://c28ck3yhaiboe" path="res://sprites/button_base.png" id="1_rhj8v"]
+[ext_resource type="Texture2D" uid="uid://cypncioaxgdst" path="res://sprites/button_opts.png" id="2_3q610"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3q610"]
+size = Vector2(150, 150)
+
+[node name="Button" type="Node2D"]
+script = ExtResource("1_3q610")
+
+[node name="ButtonBase" type="Sprite2D" parent="."]
+position = Vector2(75, 75)
+texture = ExtResource("1_rhj8v")
+
+[node name="Area2D" type="Area2D" parent="ButtonBase"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ButtonBase/Area2D"]
+shape = SubResource("RectangleShape2D_3q610")
+
+[node name="ButtonOpts" type="Sprite2D" parent="."]
+position = Vector2(75, 75)
+texture = ExtResource("2_3q610")
+hframes = 5
+vframes = 2
+
+[connection signal="input_event" from="ButtonBase/Area2D" to="." method="_on_area_2d_input_event"]

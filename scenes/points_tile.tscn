@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://8ombi01571ve"]
+
+[ext_resource type="Texture2D" uid="uid://bn6gkw25cp01c" path="res://sprites/values_tile.png" id="1_2nwvj"]
+[ext_resource type="Script" uid="uid://fcgtowyb0p52" path="res://scenes/points_tile.gd" id="1_rivhf"]
+[ext_resource type="FontFile" uid="uid://5p4h12knnf72" path="res://fonts/Jersey15-Regular.ttf" id="3_p1w4c"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_w1dye"]
+font = ExtResource("3_p1w4c")
+font_size = 80
+font_color = Color(0.15686275, 0.15686275, 0.15686275, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_p1w4c"]
+font = ExtResource("3_p1w4c")
+font_size = 110
+font_color = Color(0.15686275, 0.15686275, 0.15686275, 1)
+
+[node name="Card" type="Node2D"]
+script = ExtResource("1_rivhf")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(75, 75)
+texture = ExtResource("1_2nwvj")
+hframes = 5
+
+[node name="PointsLabel" type="Label" parent="."]
+offset_left = 54.0
+offset_top = -7.0
+offset_right = 141.0
+offset_bottom = 74.0
+text = "00"
+label_settings = SubResource("LabelSettings_w1dye")
+horizontal_alignment = 2
+
+[node name="BombsLabel" type="Label" parent="."]
+offset_left = 43.0
+offset_top = 49.0
+offset_right = 139.0
+offset_bottom = 160.0
+text = "3"
+label_settings = SubResource("LabelSettings_p1w4c")
+horizontal_alignment = 2

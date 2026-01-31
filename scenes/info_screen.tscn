@@ -1,0 +1,91 @@
+[gd_scene load_steps=9 format=3 uid="uid://cjaouehqts8cy"]
+
+[ext_resource type="Script" uid="uid://c303q1wtu4p06" path="res://scenes/info_screen.gd" id="1_xlwc2"]
+[ext_resource type="Texture2D" uid="uid://bof1rrnqg45i0" path="res://sprites/info_overlay.png" id="2_xlwc2"]
+[ext_resource type="Texture2D" uid="uid://c3r6ujl2pb6dt" path="res://sprites/big_button.png" id="3_r60x5"]
+[ext_resource type="Texture2D" uid="uid://cypncioaxgdst" path="res://sprites/button_opts.png" id="4_ng07w"]
+[ext_resource type="FontFile" uid="uid://5p4h12knnf72" path="res://fonts/Jersey15-Regular.ttf" id="5_dfxxk"]
+[ext_resource type="LabelSettings" uid="uid://dekroiuhpjpdf" path="res://fonts/info_screen_font.tres" id="6_qmr6i"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qnnn4"]
+font = ExtResource("5_dfxxk")
+font_size = 216
+font_color = Color(0.91764706, 0.91764706, 0.91764706, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_luwr3"]
+size = Vector2(791, 259)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_xlwc2")
+metadata/_edit_vertical_guides_ = [603.0]
+
+[node name="Backdrop" type="Sprite2D" parent="."]
+position = Vector2(603, 1311)
+texture = ExtResource("2_xlwc2")
+
+[node name="ReplayButton" type="Sprite2D" parent="."]
+position = Vector2(602, 2010)
+texture = ExtResource("3_r60x5")
+
+[node name="ButtonOpts" type="Sprite2D" parent="ReplayButton"]
+position = Vector2(-273, 2)
+texture = ExtResource("4_ng07w")
+hframes = 5
+vframes = 2
+frame = 4
+
+[node name="Label" type="Label" parent="ReplayButton"]
+offset_left = -188.0
+offset_top = -103.0
+offset_right = 188.0
+offset_bottom = 113.0
+text = "CLOSE"
+label_settings = SubResource("LabelSettings_qnnn4")
+
+[node name="Area2D" type="Area2D" parent="ReplayButton"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ReplayButton/Area2D"]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_luwr3")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 90.0
+offset_top = 1424.0
+offset_right = 1086.0
+offset_bottom = 1804.0
+text = "Clear the board by revealing all number tiles without hitting a bomb to win big.
+
+Use the clues to plan your flips and blast through the board!"
+label_settings = ExtResource("6_qmr6i")
+autowrap_mode = 3
+
+[node name="TileInstructions" type="Label" parent="."]
+offset_left = 132.0
+offset_top = 379.0
+offset_right = 646.0
+offset_bottom = 568.0
+text = "Double tap the tiles to reveal numbers...or bombs"
+label_settings = ExtResource("6_qmr6i")
+autowrap_mode = 2
+
+[node name="PointsInstructions" type="Label" parent="."]
+offset_left = 351.0
+offset_top = 824.0
+offset_right = 800.0
+offset_bottom = 1013.0
+text = "These are the sum  of points in the row/column"
+label_settings = ExtResource("6_qmr6i")
+horizontal_alignment = 2
+autowrap_mode = 2
+
+[node name="PointsInstructions2" type="Label" parent="."]
+offset_left = 354.0
+offset_top = 1140.0
+offset_right = 803.0
+offset_bottom = 1329.0
+text = "These are the number of bombs in the row/column"
+label_settings = ExtResource("6_qmr6i")
+horizontal_alignment = 2
+autowrap_mode = 2
+
+[connection signal="input_event" from="ReplayButton/Area2D" to="." method="_on_replay_clicked"]

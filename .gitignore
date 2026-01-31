@@ -74,4 +74,4 @@ Secrets.plist
 .env
 .env.*
 
-.export/
+exports/
